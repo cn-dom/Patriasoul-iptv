@@ -1,0 +1,31 @@
+PRERAĐENA IPTV M3U LISTA
+=======================
+
+Datoteka playlist.m3u sadrži tvoje postojeće stream poveznice iz IPTVnator sigurnosne kopije.
+Uklonjeni su samo zapisi s potpuno istom stream adresom; različite varijante kanala ostavljene su.
+Kategorije su grupirane u preglednije cjeline.
+
+SIGURNOST:
+- Ne objavljuj playlist.m3u u javnom GitHub repozitoriju niti je šalji drugim osobama.
+- Privatni GitHub repozitorij nije pouzdan izvor za običan IPTV player: većina aplikacija ne može se prijaviti u privatni GitHub da bi preuzela datoteku.
+- Za sada učitaj datoteku lokalno u IPTV aplikaciju. Ako aplikacija podržava lokalnu M3U datoteku, odaberi Add playlist / M3U file / Local file.
+- Ako aplikacija prihvaća samo URL, nemoj stavljati ovu datoteku na javni hosting. Reći ću ti sigurniju opciju kad napišeš naziv aplikacije.
+- Ova obrada ne otključava kanale koje pružatelj blokira ili traži pretplatu.
+
+KATEGORIJE I BROJ ZAPISA:
+- 18+: 33
+- Djeca i obiteljski: 1024
+- Dokumentarni: 1253
+- Filmovi: 10499
+- Glazba: 121
+- Ostalo: 126
+- Radio: 22
+- Serije: 15591
+- Sport: 258
+- TV • Balkan: 3612
+- TV • Hrvatska: 39
+- TV • Ostale zemlje: 298
+
+Ukupno prije uklanjanja duplikata: 54162
+Uklonjeni točni duplikati URL-a: 21286
+Ukupno u novoj listi: 32876
