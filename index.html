@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071426">
+  <meta name="description" content="PatriaSoul IPTV — Windows desktop player za M3U/M3U8 playliste.">
+  <title>PatriaSoul IPTV</title>
+  <style>
+    :root{color-scheme:dark;--bg:#071426;--panel:#10233b;--text:#f3f6fb;--muted:#b7c4d6;--red:#d62839;--blue:#2474c6}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:var(--text);background:radial-gradient(ellipse at top,#15365a 0%,var(--bg) 60%);display:flex;align-items:center;justify-content:center;padding:28px}
+    main{width:min(780px,100%);background:rgba(16,35,59,.94);border:1px solid #29415d;border-radius:22px;padding:clamp(24px,5vw,48px);box-shadow:0 24px 80px #0005}
+    .flag{display:flex;height:6px;border-radius:8px;overflow:hidden;margin-bottom:28px}.flag span{flex:1}.red{background:var(--red)}.white{background:#fff}.blue{background:var(--blue)}
+    .eyebrow{letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;color:#c7d8ed;font-weight:700}
+    h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.05;margin:12px 0 18px}p{line-height:1.7;color:var(--muted);font-size:1.04rem}
+    .notice{margin:26px 0;padding:18px 20px;border-radius:14px;background:#08182a;border:1px solid #29415d}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.button{display:inline-block;text-decoration:none;font-weight:700;padding:13px 18px;border-radius:10px;color:white;background:#185da4;border:1px solid #3d83c7}.button.secondary{background:transparent;border-color:#506984}
+    small{display:block;margin-top:28px;color:#9aabc0;line-height:1.6}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="flag" aria-hidden="true"><span class="red"></span><span class="white"></span><span class="blue"></span></div>
+    <div class="eyebrow">PatriaSoul · Windows aplikacija</div>
+    <h1>PatriaSoul IPTV</h1>
+    <p>Desktop IPTV player za Windows s podrškom za uvoz M3U/M3U8 playlista, kategorije, pretraživanje, favorite i HLS reprodukciju.</p>
+    <div class="notice">
+      <strong>Ovo je stranica projekta, a ne sam player.</strong>
+      <p>PatriaSoul IPTV je Windows desktop aplikacija i ne pokreće se izravno u pregledniku. Za instalaciju preuzmi Windows paket iz GitHub Actions izrade.</p>
+    </div>
+    <div class="actions">
+      <a class="button" href="https://github.com/cn-dom/Patriasoul-iptv/actions">Otvori Windows izrade</a>
+      <a class="button secondary" href="https://github.com/cn-dom/Patriasoul-iptv">Otvori repozitorij</a>
+    </div>
+    <small>Za preuzimanje: otvori najnoviju uspješnu izradu „PatriaSoul IPTV Windows build”, pronađi odjeljak Artifacts i preuzmi Windows paket. Koristi samo playliste i streamove za koje imaš pravo pristupa.</small>
+  </main>
+</body>
+</html>
