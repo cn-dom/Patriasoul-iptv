@@ -292,7 +292,30 @@ $("loadUrlBtn").addEventListener("click", async function() {
     $("loadUrlBtn").textContent = "Učitaj URL";
   }
 });
+function playAdjacent(direction) {
+  if (!state.items.length) {
+    showNotice("Najprije učitaj playlistu.", "error");
+    return;
+  }
+  const currentIndex = state.items.findIndex(function(item) { return item.id === state.activeId; });
+  const nextIndex = currentIndex < 0
+    ? (direction > 0 ? 0 : state.items.length - 1)
+    : (currentIndex + direction + state.items.length) % state.items.length;
+  startPlayback(state.items[nextIndex]);
+}
+
+$("previousBtn").addEventListener("click", function() { playAdjacent(-1); });
+$("nextBtn").addEventListener("click", function() { playAdjacent(1); });
 $("currentFavoriteBtn").addEventListener("click", function() { toggleFavorite(state.activeId); });
+document.addEventListener("keydown", function(event) {
+  if (event.altKey && event.key === "ArrowLeft") {
+    event.preventDefault();
+    playAdjacent(-1);
+  } else if (event.altKey && event.key === "ArrowRight") {
+    event.preventDefault();
+    playAdjacent(1);
+  }
+});
 search.addEventListener("input", renderGrid);
 document.querySelectorAll(".nav-item").forEach(function(button) {
   button.addEventListener("click", function() {
