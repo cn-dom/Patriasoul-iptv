@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' file: data: blob: https: http:; media-src 'self' file: blob: https: http:; img-src 'self' data: https: http:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>PatriaSoul IPTV</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div><strong>PatriaSoul <em>IPTV</em></strong><small>TV · Filmovi · Serije</small></div>
+      </div>
+      <div class="top-actions">
+        <span id="playlistStatus" class="status-pill"><i></i> Lista nije učitana</span>
+        <button id="openPlaylistBtn" class="button button-primary">＋ Dodaj M3U listu</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <div class="side-label">KNJIŽNICA</div>
+        <button class="nav-item active" data-view="all"><span>▦</span> Svi kanali i naslovi <b id="allCount">0</b></button>
+        <button class="nav-item" data-view="favorites"><span>☆</span> Omiljeno <b id="favoriteCount">0</b></button>
+        <div class="side-label side-label-spaced">KATEGORIJE</div>
+        <div id="categoryList" class="category-list"><p class="empty-note">Učitaj M3U listu za prikaz kategorija.</p></div>
+        <div class="sidebar-bottom">
+          <div class="flag-stripe"><span></span><span></span><span></span></div>
+          <strong>PatriaSoul</strong>
+          <small>Jednostavno. Pregledno. Tvoje.</small>
+        </div>
+      </aside>
+
+      <section class="content">
+        <section class="player-panel">
+          <div class="player-frame" id="playerFrame">
+            <video id="videoPlayer" controls playsinline></video>
+            <div class="player-placeholder" id="playerPlaceholder">
+              <div class="play-emblem">▶</div>
+              <h2>Odaberi kanal ili naslov</h2>
+              <p>Učitaj svoju M3U/M3U8 listu i pokreni dostupni stream.</p>
+              <button class="button button-primary" id="emptyOpenBtn">Učitaj playlistu</button>
+            </div>
+            <div class="now-playing" id="nowPlaying" hidden><span class="live-dot"></span><span id="nowPlayingTitle">Nije odabrano</span></div>
+          </div>
+          <div class="player-info">
+            <div><span class="eyebrow">SADA SE REPRODUCIRA</span><h1 id="currentTitle">Dobrodošli u PatriaSoul IPTV</h1><p id="currentMeta">Dodaj lokalnu M3U playlistu ili zalijepi URL javno dostupne liste.</p></div>
+            <button id="currentFavoriteBtn" class="icon-button" title="Dodaj u omiljene" aria-label="Dodaj u omiljene">☆</button>
+          </div>
+        </section>
+
+        <section class="library">
+          <div class="library-heading">
+            <div><span class="eyebrow">TVOJA KNJIŽNICA</span><h2 id="listHeading">Svi kanali i naslovi</h2><p id="listDescription">Uvezi M3U/M3U8 playlistu za početak.</p></div>
+            <div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Traži kanal, film ili seriju…" autocomplete="off"></div>
+          </div>
+          <div id="notice" class="notice" hidden></div>
+          <div id="mediaGrid" class="media-grid">
+            <div class="welcome-card"><div class="welcome-icon">＋</div><h3>Dodaj svoju playlistu</h3><p>Podržane su lokalne .m3u/.m3u8 datoteke i playlist URL-ovi.</p><button class="button button-secondary" id="welcomeOpenBtn">Odaberi playlistu</button></div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer><span>PatriaSoul IPTV <span class="muted">· ne pruža TV kanale ni sadržaj</span></span><span>Koristi samo streamove za koje imaš pravo pristupa.</span></footer>
+  </div>
+
+  <dialog id="playlistDialog">
+    <form method="dialog" id="playlistForm">
+      <div class="dialog-header"><div><span class="eyebrow">IZVOR SADRŽAJA</span><h2>Dodaj playlistu</h2></div><button class="icon-button" value="cancel" aria-label="Zatvori">×</button></div>
+      <p class="dialog-copy">Učitaj datoteku sa svog računala ili zalijepi URL M3U/M3U8 liste. Postojeća datoteka <code>playlist.m3u</code> u repozitoriju ostaje nepromijenjena.</p>
+      <label class="file-drop" for="playlistFile"><span class="file-icon">↥</span><strong>Odaberi M3U datoteku</strong><small id="fileName">.m3u ili .m3u8 · lokalna datoteka</small><input id="playlistFile" type="file" accept=".m3u,.m3u8,.txt,audio/x-mpegurl,application/vnd.apple.mpegurl"></label>
+      <div class="separator"><span>ILI UČITAJ S URL-A</span></div>
+      <label class="field-label" for="playlistUrl">URL playliste</label>
+      <input id="playlistUrl" class="text-field" type="url" placeholder="https://primjer.hr/playlist.m3u">
+      <p class="dialog-error" id="dialogError" hidden></p>
+      <div class="dialog-actions"><button class="button button-secondary" value="cancel">Odustani</button><button type="button" id="loadUrlBtn" class="button button-primary">Učitaj URL</button><button type="button" id="loadFileBtn" class="button button-primary">Učitaj datoteku</button></div>
+    </form>
+  </dialog>
+
+  <script src="../node_modules/hls.js/dist/hls.min.js"></script>
+  <script src="./renderer.js"></script>
+</body>
+</html>
