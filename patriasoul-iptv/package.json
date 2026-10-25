@@ -1,0 +1,47 @@
+{
+  "name": "patriasoul-iptv",
+  "version": "0.1.0",
+  "description": "PatriaSoul IPTV - Windows desktop player for user-provided M3U/M3U8 playlists",
+  "main": "electron/main.cjs",
+  "private": true,
+  "author": "PatriaSoul",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis",
+    "dist:portable": "electron-builder --win portable",
+    "check": "node --check electron/main.cjs && node --check electron/preload.cjs && node --check src/renderer.js"
+  },
+  "dependencies": {
+    "hls.js": "^1.6.15"
+  },
+  "devDependencies": {
+    "electron": "^39.2.7",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "hr.patriasoul.iptv",
+    "productName": "PatriaSoul IPTV",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "electron/**/*",
+      "src/**/*",
+      "package.json",
+      "node_modules/hls.js/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
