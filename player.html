@@ -24,7 +24,8 @@
 <script>
 (function(){
 const $=id=>document.getElementById(id), video=$("video");
-let items=[], active="", hls=null;\nconst embed=$( "embed" );
+let items=[], active="", hls=null;
+const embed=$("embed");
 const favKey="patriasoul-iptv-web-favorites";
 let favorites=new Set();try{favorites=new Set(JSON.parse(localStorage.getItem(favKey)||"[]"))}catch(e){}
 function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
