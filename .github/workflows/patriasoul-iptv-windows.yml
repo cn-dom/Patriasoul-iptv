@@ -3,7 +3,9 @@ name: PatriaSoul IPTV Windows build
 on:
   push:
     branches:
+      - main
       - feature/patriasoul-iptv-desktop
+      - fix/player-validation-main-build
     paths:
       - "patriasoul-iptv/**"
       - ".github/workflows/patriasoul-iptv-windows.yml"
